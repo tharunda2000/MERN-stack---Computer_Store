@@ -5,7 +5,15 @@ import { useAppContext } from "../context/AppContext";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const {user,setUser,showLogin,setShowLogin} = useAppContext();
+  const {user,setUser,showLogin,setShowLogin,navigate} = useAppContext();
+
+
+  const logout  = async () =>{
+
+    setUser(false);
+    navigate('./');
+
+  }
   
 
   return (
@@ -14,6 +22,7 @@ const NavBar = () => {
         <NavLink to={'/'}>
           <img
             className="h-16 w-50"
+            onClick={()=>setOpen(false)}
             src={assets.logo}
             alt="dummyLogoColored"
           />
@@ -21,11 +30,9 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden sm:flex items-center gap-8">
+
           <NavLink to={'/'} onClick={()=>setOpen(false)}>Home</NavLink>
           <NavLink to={'/Products'} >Produts</NavLink>
-          {user &&
-          <NavLink to={'/Products'} >My Orders</NavLink>
-            }
           <NavLink to={'/'}>Contact</NavLink>
 
           <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
@@ -59,7 +66,8 @@ const NavBar = () => {
             </svg>
           </div>
 
-          <div className="relative cursor-pointer">
+          {/*cart*/}
+          <div className="relative cursor-pointer" onClick={()=>{navigate('/cart')}}>
             <svg
               width="18"
               height="18"
@@ -81,26 +89,34 @@ const NavBar = () => {
 
         {!user ? (
 
-          <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full">
+          <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full " onClick={()=>{setShowLogin(true);}}>
             Login
           </button>
 
         ) : (
 
-          <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full">
-            Logout
-          </button>
+          <div className="relative group">
+
+            <i className="ri-account-circle-fill text-[#ff9a00] text-4xl cursor-pointer"></i>
+            <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
+              <li className="p-1.5 pl-3 hover:bg-[#ff9a00]/10 cursor-pointer" onClick={()=>{navigate('my-orders')}}>My orders</li>
+              <li className="p-1.5 pl-3 hover:bg-[#ff9a00]/10 cursor-pointer " onClick={logout}>Logout</li>
+            </ul>
+
+          </div>
+
 
         )
 
         } 
+
 
         </div>
 
         <button
           onClick={() => (open ? setOpen(false) : setOpen(true))}
           aria-label="Menu"
-          className="sm:hidden"
+          className="sm:hidden cursor-pointer"
         >
           {/* Menu Icon SVG */}
           <svg
@@ -135,9 +151,23 @@ const NavBar = () => {
           <NavLink to={'/Products'} onClick={()=>setOpen(false)}>My Orders</NavLink>
             }
           <NavLink to={'/'} onClick={()=>setOpen(false)}>Contact</NavLink>
-          <button className="cursor-pointer px-6 py-2 mt-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full text-sm">
-            Login
-          </button>
+          
+          {!user ? (
+
+            <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full" onClick={()=>{setShowLogin(true);setOpen(false);}}>
+              Login
+            </button>
+
+            ) : (
+
+            <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full" onClick={logout}>
+              Logout
+            </button>
+
+            )
+
+            } 
+          
         </div>
       </nav>
     </div>
