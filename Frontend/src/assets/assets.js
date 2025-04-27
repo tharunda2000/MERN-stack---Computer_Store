@@ -20,7 +20,7 @@ export const catagories = [
         text: "Gaming Laptops",
         path: "Laptops",
         image: laptop,
-        bgColor:"#1E90FF",
+        bgColor:"#87CEFA",
 
     },
 
@@ -28,7 +28,7 @@ export const catagories = [
         text: "	Graphics Cards",
         path: "graphiccards",
         image: gpu,
-        bgColor:"#FF4500",
+        bgColor:"#FFA07A",
 
     },
 
@@ -36,7 +36,8 @@ export const catagories = [
         text: "Processors",
         path: "Processors",
         image: processor,
-        bgColor:"#8A2BE2",
+        bgColor:"",
+        bgColor:"#D8BFD8",
 
     },
 
@@ -44,7 +45,7 @@ export const catagories = [
         text: "	Gaming Accessories",
         path: "Accessoriess",
         image: accessories,
-        bgColor:"#00CED1",
+        bgColor:"	#AFEEEE",
 
     },
 
@@ -52,7 +53,7 @@ export const catagories = [
         text: "Monitors",
         path: "Monitors",
         image: monitor,
-        bgColor:"#32CD32",
+        bgColor:"#98FB98",
 
     },
 
@@ -60,7 +61,7 @@ export const catagories = [
         text: "Storage Devices",
         path: "Storage",
         image: storage,
-        bgColor:"#FFD700",
+        bgColor:"#FAFAD2",
 
     },
 
@@ -68,7 +69,7 @@ export const catagories = [
         text: "	PC Cases",
         path: "Casings",
         image: casing,
-        bgColor:"#FF69B4",
+        bgColor:"#FFB6C1",
 
     },
 ]
