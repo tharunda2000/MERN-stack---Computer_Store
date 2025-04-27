@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext,useState } from "react";
 import { NavLink } from "react-router-dom";
 import {assets} from '../assets/assets'
+import { useAppContext } from "../context/AppContext";
 
 const NavBar = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const {user,setUser,showLogin,setShowLogin} = useAppContext();
   
 
   return (
@@ -19,11 +21,12 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden sm:flex items-center gap-8">
-          <NavLink to={'/'}>Home</NavLink>
-          <NavLink to={'/About'}>About</NavLink>
-          <NavLink to={'/Contact'}>Contact</NavLink>
-          
-          
+          <NavLink to={'/'} onClick={()=>setOpen(false)}>Home</NavLink>
+          <NavLink to={'/Products'} >Produts</NavLink>
+          {user &&
+          <NavLink to={'/Products'} >My Orders</NavLink>
+            }
+          <NavLink to={'/'}>Contact</NavLink>
 
           <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
             <input
@@ -76,9 +79,22 @@ const NavBar = () => {
             </button>
           </div>
 
+        {!user ? (
+
           <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full">
             Login
           </button>
+
+        ) : (
+
+          <button className="cursor-pointer px-8 py-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full">
+            Logout
+          </button>
+
+        )
+
+        } 
+
         </div>
 
         <button
@@ -113,15 +129,12 @@ const NavBar = () => {
             open ? "flex" : "hidden"
           } absolute top-[60px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-2 px-5 text-sm md:hidden`}
         >
-          <a href="#" className="block">
-            Home
-          </a>
-          <a href="#" className="block">
-            About
-          </a>
-          <a href="#" className="block">
-            Contact
-          </a>
+          <NavLink to={'/'} onClick={()=>setOpen(false)}>Home</NavLink>
+          <NavLink to={'/Products'} onClick={()=>setOpen(false)}>Produts</NavLink>
+          {user &&
+          <NavLink to={'/Products'} onClick={()=>setOpen(false)}>My Orders</NavLink>
+            }
+          <NavLink to={'/'} onClick={()=>setOpen(false)}>Contact</NavLink>
           <button className="cursor-pointer px-6 py-2 mt-2 bg-[#ff9900c5] hover:bg-[#ff9a00] transition text-white rounded-full text-sm">
             Login
           </button>
