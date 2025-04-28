@@ -6,8 +6,8 @@ const MainBanner = () => {
   return (
     <div className='relative'>
 
-        <img src={assets.mainBanner} alt="" className='w-full hidden md:block'/>
-        <img src={assets.smallBanner} alt="" className='w-full  md:hidden'/>
+        <img src={assets.mainBanner} alt="" className='w-full hidden md:block rounded-lg'/>
+        <img src={assets.smallBanner} alt="" className='w-full  md:hidden rounded-lg'/>
 
         <div className='absolute inset-0 flex flex-col items-center md:items-start justify-end md:justify-center pb-5 px-4 ml:pl-18 lg:pl-24 text-white md:text-black'>
           <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-center md:text-left max-w-72 md:max-w-80 lg:max-w-105 leading-tight lg:leading-15'>GamersStreet: Where Every Gamer Finds Their Perfect Powerhouse.</h1>

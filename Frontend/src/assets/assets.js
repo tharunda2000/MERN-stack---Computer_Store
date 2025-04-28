@@ -73,3 +73,10 @@ export const catagories = [
 
     },
 ]
+
+export const dummyProducts = [
+    
+    {
+
+    },
+]
