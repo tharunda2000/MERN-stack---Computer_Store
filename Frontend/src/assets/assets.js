@@ -85,7 +85,7 @@ export const dummyProducts = [
     image: "https://www.sense.lk/images/uploads/product/47471_2150_ASUS-G533QS-5900HX-1.png",
     brand: "ASUS",
     rating: 4.7,
-    stock: 12,
+    stock: 12,  
     colors: ["#000000", "#1E90FF"],
     features: [
       "AMD Ryzen 9 5900HX",

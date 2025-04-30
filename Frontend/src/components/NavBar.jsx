@@ -5,7 +5,7 @@ import { useAppContext } from "../context/AppContext";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const {user,setUser,showLogin,setShowLogin,navigate} = useAppContext();
+  const {user,setUser,showLogin,setShowLogin,navigate,} = useAppContext();
 
 
   const logout  = async () =>{
@@ -83,7 +83,7 @@ const NavBar = () => {
               />
             </svg>
             <button className="absolute -top-2 -right-3 text-xs text-white bg-[#ff9a00] w-[18px] h-[18px] rounded-full">
-              3
+                3
             </button>
           </div>
 

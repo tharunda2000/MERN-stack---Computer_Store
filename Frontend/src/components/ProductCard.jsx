@@ -33,18 +33,18 @@ const ProductCard = ({product}) => {
                         {currency}${product.offerPrice} <span className="text-gray-500/60 md:text-sm text-xs line-through">{currency}${product.price}</span>
                     </p>
                     <div className="text-indigo-500">
-                        {!cartItems[product._id] ? (
-                            <button className="flex items-center justify-center gap-1 bg-indigo-100 border border-indigo-300 md:w-[80px] w-[64px] h-[34px] rounded text-indigo-600 font-medium" onClick={() => setCount(1)} >
+                        {!cartItems[product.id] ? (
+                            <button className="flex items-center justify-center gap-1 bg-indigo-100 border border-indigo-300 md:w-[80px] w-[64px] h-[34px] rounded text-indigo-600 font-medium cursor-pointer" onClick={() =>addToCart(product.id) } >
                                 <i class="ri-shopping-cart-fill"></i>
                                 Add
                             </button>
                         ) : (
                             <div className="flex items-center justify-center gap-2 md:w-20 w-16 h-[34px] bg-indigo-500/25 rounded select-none">
-                                <button onClick={() => setCount((prev) => Math.max(prev - 1, 0))} className="cursor-pointer text-md px-2 h-full" >
+                                <button onClick={() => removeFromCart(product.id)} className="cursor-pointer text-md px-2 h-full" >
                                     -
                                 </button>
-                                <span className="w-5 text-center">{cartItems[product._id]}</span>
-                                <button onClick={() => setCount((prev) => prev + 1)} className="cursor-pointer text-md px-2 h-full" >
+                                <span className="w-5 text-center">{cartItems[product.id]}</span>
+                                <button onClick={() => addToCart(product.id)} className="cursor-pointer text-md px-2 h-full" >
                                     +
                                 </button>
                             </div>
