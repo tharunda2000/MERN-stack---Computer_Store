@@ -20,7 +20,7 @@ export const AppContextProvider =({children})=>{
     
     //fetch all products
     const fetchProducts = async ()=>{
-        setProducts([dummyProducts])
+        setProducts(dummyProducts)
     }
 
     //Add a product to the cart
@@ -39,13 +39,42 @@ export const AppContextProvider =({children})=>{
         toast.success("Added to cart")
     }
 
+    //Update the quantity of cart
+    const updateCart = (itemId,quantity) =>{
+
+        let cartData = structuredClone(cartItems);
+        cartData[itemId] = quantity;
+        setCartItems(cartData)
+
+        toast.success("cart updated")
+
+    }
     
+    //Remove product from cart 
+    const removeFromCart = (itemId) =>{
+
+        let cartData = structuredClone(cartItems);
+
+        if(cartData[itemId]){
+            cartData[itemId]-=1;
+
+            if(cartData[itemId]===0){
+                delete cartData[itemId];
+            }
+        }
+
+        setCartItems(cartData);
+        toast.success("Removed from cart")
+
+        
+
+    }
 
     useEffect(()=>{
         fetchProducts()
     },[])
 
-    const value = {navigate,user,setUser,isSeller,setSeller,showLogin,setShowLogin,products,currency,addToCart}
+    const value = {navigate,user,setUser,isSeller,setSeller,showLogin,setShowLogin,products,currency,addToCart,updateCart,removeFromCart,cartItems}
 
     return <AppContext.Provider value={value}>
         {children}
