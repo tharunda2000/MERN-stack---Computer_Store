@@ -3,11 +3,14 @@ import { assets,features } from '../assets/assets'
 
 const BottomBanner = () => {
   return (
-    <div className='relative mt-45 flex'>
-      <img src={assets.lowerBanner} alt="" className='flex-col w-1/2 hidden md:block' />
+    <div className='relative mt-45 flex mb-20'>
+       <picture className="w-full md:w-1/2">
+        <source srcSet={assets.lowerBanner} media="(min-width: 768px)" />
+        <img src={assets.lowerBanner} alt="Banner" className="w-full h-auto object-cover mt-30 md:mt-7" />
+      </picture>
       
 
-      <div className='absolute inset-0 flex flex-col items-center  md:items-end  pt-16 md:pt-0 md:pr-44 md:mt-34 '>
+      <div className='relative inset-0 flex flex-col items-center  md:items-end  pt-16 md:pt-0 md:pr-44 md:mt-34 '>
 
       <div className='flex-col-lg'>
         <h1 className='text-2xl md:text-5xl font-semibold mb-6 text-[#000000] '>Why Shop With Us?</h1>

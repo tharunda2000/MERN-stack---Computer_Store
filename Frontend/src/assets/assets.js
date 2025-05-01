@@ -307,3 +307,35 @@ export const features = [
     description: "Thousands of satisfied gamers, creators, and pros choose us."
   }
 ];
+
+export const footerLinks = [
+  {
+    title: "Quick Links",
+    links: [
+      {text: "Home",url: "#"},
+      {text: "Shop All",url: "#"},
+      {text: "Offers & Deals",url: "#"},
+      {text: "Contact Us",url: "#"},
+      {text: "FAQs",url: "#"},
+    ]
+  },
+  {
+    title: "Need Help?",
+    links: [
+      {text: "Shipping Information",url: "#"},
+      {text: "Return & Exchange Policy",url: "#"},
+      {text: "Payment Options",url: "#"},
+      {text: "Order Tracking",url: "#"},
+      {text: "Support Center",url: "#"},
+    ]
+  },
+  {
+    title: "Follow Us",
+    links: [
+      {text: "Instagram",url: "#"},
+      {text: "Twitter",url: "#"},
+      {text: "Facebook",url: "#"},
+      {text: "Youtube",url: "#"},
+    ]
+  },
+]

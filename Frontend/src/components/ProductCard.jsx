@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
 
 
   return product && (
-        <div className="border border-[#ff9900] rounded-md md:px-4 px-3 py-2 bg-white min-w-76 max-w-76 w-full h-75  mt-10">
+        <div className="border border-[#ff9900] rounded-md px-3 py-2 bg-white w-full max-w-xs sm:max-w-sm md:max-w-md h-auto mt-6">
             <div className="group cursor-pointer flex items-center justify-center px-2">
                 <img className="group-hover:scale-105 transition max-w-26 md:max-w-36" src={product.image} alt={product.name} />
             </div>
