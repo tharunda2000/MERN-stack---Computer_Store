@@ -7,11 +7,11 @@ const BestSeller = () => {
   const {products} = useAppContext()
 
   return (
-    <div className='mt-16'>
+    <div className='mt-25 mb-25'>
 
-        <p className='text-2xl md:text-3xl font-medium mt-5 mb-5'>Best Seller</p>
+        <p className='text-2xl md:text-3xl font-medium mt-15 mb-5'>Best Seller</p>
 
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-6 gap-3 md:gap-6 '>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-6 gap-3 md:gap-6  mt-15'>
           {(products.filter((product)=>product.stock>0).slice(0,5).map((product,index)=>(
             <ProductCard key={index} product={product}/>
           )))}

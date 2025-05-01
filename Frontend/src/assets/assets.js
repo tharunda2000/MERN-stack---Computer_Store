@@ -2,6 +2,7 @@ import logo from '../assets/logo.png'
 import mainBanner from '../assets/banner.png'
 import smallBanner from '../assets/banner-sm.jpg'
 import whiteArrow from '../assets/arrow-right-line.png'
+import lowerBanner from '../assets/lowerBannerImage.png'
 
 import laptop from '../assets/laptop.png'
 import gpu from '../assets/gpu.png'
@@ -11,8 +12,14 @@ import storage from '../assets/ssd.png'
 import processor from '../assets/processor.png'
 import monitor from '../assets/monitor.png'
 
+import truck from '../assets/truck-fill.png'
+import check from '../assets/checkbox-circle-fill.png'
+import pricetag from '../assets/price-tag-3-fill.png'
+import shakehands from '../assets/shake-hands-fill.png'
+
+
 export const assets = {
-    logo,mainBanner,smallBanner,whiteArrow,
+    logo,mainBanner,smallBanner,whiteArrow,lowerBanner,
 }
 
 export const catagories = [
@@ -275,5 +282,28 @@ export const dummyProducts = [
     ],
     createdAt: "2024-04-28T10:00:00.000Z",
     updatedAt: "2024-04-28T10:00:00.000Z"
+  }
+];
+
+export const features = [
+  {
+    icon: truck,
+    title: "Fast & Reliable Delivery",
+    description: "Get your tech delivered quickly and securely."
+  },
+  {
+    icon: check,
+    title: "Genuine Products Guaranteed",
+    description: "We stock only 100% authentic and brand-new items."
+  },
+  {
+    icon: pricetag,
+    title: "Competitive Pricing",
+    description: "Top-tier hardware at unbeatable prices."
+  },
+  {
+    icon: shakehands,
+    title: "Trusted by Tech Enthusiasts",
+    description: "Thousands of satisfied gamers, creators, and pros choose us."
   }
 ];
