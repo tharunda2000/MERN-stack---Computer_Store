@@ -1,11 +1,11 @@
-import React, { useContext,useState } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import { NavLink } from "react-router-dom";
 import {assets} from '../assets/assets'
 import { useAppContext } from "../context/AppContext";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const {user,setUser,showLogin,setShowLogin,navigate,} = useAppContext();
+  const {user,setUser,showLogin,setShowLogin,navigate,searchQuery,setSearchQuery,} = useAppContext();
 
 
   const logout  = async () =>{
@@ -14,6 +14,12 @@ const NavBar = () => {
     navigate('./');
 
   }
+
+  useEffect(()=>{
+    if(searchQuery.lenght>0){
+      navigate('/products')
+    }
+  },[searchQuery])
   
 
   return (
@@ -35,11 +41,12 @@ const NavBar = () => {
           <NavLink to={'/Products'} >Produts</NavLink>
           <NavLink to={'/'}>Contact</NavLink>
 
-          <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
+          <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full" >
             <input
               className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
               type="text"
               placeholder="Search products"
+              onChange={(e)=>setSearchQuery(e.target.value)}
             />
             <svg
               width="16"
